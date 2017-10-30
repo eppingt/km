@@ -2,13 +2,9 @@
 The section of script changes the name of a newly built server.
 #>
 
+Get-WmiObject Win32_ComputerSystem
 $computerName = Get-WmiObject Win32_ComputerSystem
-
-[System.Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic') | Out-Null
-$name = [Microsoft.VisualBasic.Interaction]::InputBox("Enter Desired Name")
-
-$name
-
+$name = Read-Host -Prompt "Please Enter the ComputerName you want to use."
 $computername.Rename($name)
 
 <#
