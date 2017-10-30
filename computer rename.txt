@@ -1,5 +1,5 @@
 <#
-The function of this script is to change the name of a newly built server.
+The section of script changes the name of a newly built server.
 #>
 
 $computerName = Get-WmiObject Win32_ComputerSystem
@@ -10,3 +10,9 @@ $name = [Microsoft.VisualBasic.Interaction]::InputBox("Enter Desired Name")
 $name
 
 $computername.Rename($name)
+
+<#
+This section of script reboots the newly renamed server.
+#>
+
+Restart-Computer
